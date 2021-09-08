@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+
+  spring_log_tracing_1:
+    container_name: spring_log_tracing_1
+    image: helpdev/spring-log-tracing
+    expose:
+      - 8080
+    network_mode: host
+    environment:
+      PORT: 8080
+      APP_NAME: spring_log_tracing_1
+      EXTERNAL_PING_ENABLED: "true"
+      EXTERNAL_PING_URL: http://localhost:8090
+      LOG_APPENDER: "out-console"
+
+  quarkus_log_tracing_1:
+    container_name: quarkus_log_tracing_1
+    image: helpdev/quarkus-log-tracing
+    expose:
+      - 8090
+    network_mode: host
+    environment:
+      PORT: 8090
+      APP_NAME: quarkus_log_tracing_1
+      EXTERNAL_PING_ENABLED: "true"
+      EXTERNAL_PING_URL: http://localhost:8081
+      LOG_JSON_ENABLED: "false"
+
+  spring_log_tracing_2:
+    container_name: spring_log_tracing_2
+    image: helpdev/spring-log-tracing
+    expose:
+      - 8081
+    network_mode: host
+    environment:
+      PORT: 8081
+      APP_NAME: spring_log_tracing_2
+      EXTERNAL_PING_ENABLED: "true"
+      EXTERNAL_PING_URL: http://localhost:8091
+      LOG_APPENDER: "out-console"
+
+  quarkus_log_tracing_2:
+    container_name: quarkus_log_tracing_2
+    image: helpdev/quarkus-log-tracing
+    expose:
+      - 8091
+    network_mode: host
+    environment:
+      PORT: 8091
+      APP_NAME: quarkus_log_tracing_2
+      EXTERNAL_PING_ENABLED: "false"
+      LOG_JSON_ENABLED: "false"
