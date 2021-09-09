@@ -50,5 +50,32 @@ services:
     environment:
       PORT: 8091
       APP_NAME: quarkus_log_tracing_2
+      EXTERNAL_PING_ENABLED: "true"
+      EXTERNAL_PING_URL: http://localhost:9080
+      LOG_JSON_ENABLED: "false"
+
+  spring_jersey_log_tracing_1:
+    container_name: spring_jersey_log_tracing_1
+    image: helpdev/spring-jersey-log-tracing
+    expose:
+      - 9080
+    network_mode: host
+    environment:
+      PORT: 9080
+      APP_NAME: spring_jersey_log_tracing_1
+      EXTERNAL_PING_ENABLED: "true"
+      EXTERNAL_PING_URL: http://localhost:8092
+      LOG_APPENDER: "out-console"
+
+  quarkus_log_tracing_3:
+    container_name: quarkus_log_tracing_3
+    image: helpdev/quarkus-log-tracing
+    expose:
+      - 8092
+    network_mode: host
+    environment:
+      PORT: 8092
+      APP_NAME: quarkus_log_tracing_3
       EXTERNAL_PING_ENABLED: "false"
       LOG_JSON_ENABLED: "false"
+

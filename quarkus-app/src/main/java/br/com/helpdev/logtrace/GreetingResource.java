@@ -3,6 +3,8 @@ package br.com.helpdev.logtrace;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -28,8 +30,9 @@ public class GreetingResource {
 
   @GET
   @Produces(MediaType.TEXT_PLAIN)
-  public String hello() {
+  public String hello(@Context HttpHeaders headers) {
     LOG.info("new request log sample - {}", appName);
+    LOG.debug("request headers - {}", headers.getRequestHeaders());
 
     if (externalPingEnabled) {
       LOG.info("external ping is enabled, executing external call");

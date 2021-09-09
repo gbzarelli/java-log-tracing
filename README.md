@@ -38,13 +38,6 @@ Nota-se o objetivo do projeto ao monitorar os logs no qual foi configurado com o
 
 Ex. de uma requisição na primeira app:
 
-```
-spring_log_tracing_1     | 19:26:23.047 [97062ee8e4cb8052,97062ee8e4cb8052] [http-nio-8080-exec-1] INFO  [b.c.helpdev.logtrace.PingController] - new request log sample - spring_log_tracing_1
-spring_log_tracing_1     | 19:26:23.047 [97062ee8e4cb8052,97062ee8e4cb8052] [http-nio-8080-exec-1] INFO  [b.c.helpdev.logtrace.PingController] - external ping is enabled, executing external call
-quarkus_log_tracing_1    | 19:26:23.051 [97062ee8e4cb8052,3bc49d26bd6a0a16] [executor-thread-0] INFO  [br.co.he.lo.GreetingResource] - new request log sample - quarkus_log_tracing_1
-quarkus_log_tracing_1    | 19:26:23.051 [97062ee8e4cb8052,3bc49d26bd6a0a16] [executor-thread-0] INFO  [br.co.he.lo.GreetingResource] - external ping is enabled, executing external call
-spring_log_tracing_2     | 19:26:23.055 [97062ee8e4cb8052,d4610433c856530f] [http-nio-8081-exec-2] INFO  [b.c.helpdev.logtrace.PingController] - new request log sample - spring_log_tracing_2
-spring_log_tracing_2     | 19:26:23.055 [97062ee8e4cb8052,d4610433c856530f] [http-nio-8081-exec-2] INFO  [b.c.helpdev.logtrace.PingController] - external ping is enabled, executing external call
-quarkus_log_tracing_2    | 19:26:23.059 [97062ee8e4cb8052,31697b8ca95d0ac4] [executor-thread-0] INFO  [br.co.he.lo.GreetingResource] - new request log sample - quarkus_log_tracing_2
-quarkus_log_tracing_2    | 19:26:23.059 [97062ee8e4cb8052,31697b8ca95d0ac4] [executor-thread-0] INFO  [br.co.he.lo.GreetingResource] - external ping is disabled! return direct PONG
-```
+<p align="left">
+    <img src="log-tracing.png" height="190">
+</p>
