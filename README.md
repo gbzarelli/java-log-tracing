@@ -26,11 +26,10 @@ make run
 
 # Testando
 
-As quatro aplicações serão iniciadas, com chamadas encadeadas entre elas.
+As aplicações serão iniciadas, com chamadas encadeadas entre elas, para demonstrar o compartilhamento do `traceId` e geração do `spanId` para cada request.
+Ao chamar por exemplo o primeiro client: `http://localhost:8080/ping` a aplicação chamará as demais conforme o fluxo:
 
-`spring_log_tracing_1 (8080) -> quarkus_log_tracing_1 (8090) -> spring_log_tracing_2 (8081) -> quarkus_log_tracing_2 (8091)`
-
-Ao chamar por exemplo o primeiro client: `http://localhost:8080/ping` a aplicação chamará as demais conforme o fluxo acima.
+`spring_log_tracing_1 (8080) -> quarkus_log_tracing_1 (8090) -> spring_log_tracing_2 (8081) -> quarkus_log_tracing_2 (8091) -> spring_jersey_log_tracing_1 (9080) -> quarkus_log_tracing_3 (9092)`
 
 Nota-se o objetivo do projeto ao monitorar os logs no qual foi configurado com o seguinte pattern:
 
